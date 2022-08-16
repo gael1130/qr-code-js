@@ -1,7 +1,5 @@
 const fs = require("fs");
-const{ v4: uuidv4 } = require("uuid");
-
-
+const { v4: uuidv4 } = require("uuid");
 
 // Function that returns the current date in the format mm/dd/yyyy
 function getDate() {
@@ -23,21 +21,32 @@ function saveTicket(ticket) {
 let DateOfEvent = getDate();
 
 // Event Location
-let location = "Tenerife";
+const location = "Tenerife";
 // number of tickets
-let number = 10;
+const number = 5;
 // name of the event
-let event = "Loco Solana";
+const name = "Loco Solana";
+const symbol = "LS";
+const description = "The first event organized by Blocklive on Solana";
+// 1000 = 10%
+const fees = 1000;
+const url = "https://www.blocklive.io";
 
 // loop X times to create X tickets with associated json files
 for (let i = 0; i < number; i++) {
   let counter = i;
   let ticket = {
+    name: name,
+    symbol: symbol,
+    description: description,
+    seller_fee_basis_points: fees,
+    external_url: url,
     date: DateOfEvent,
     location: location,
     number: counter,
     ticketId: uuidv4(),
-    event: event,
   };
   saveTicket(ticket);
 }
+
+module.exports = { number };

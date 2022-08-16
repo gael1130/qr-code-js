@@ -2,11 +2,10 @@ const fs = require("fs");
 const QRCode = require("qrcode");
 
 // read the contents of all files in data folder
-const files = fs.readdirSync("newData");
-console.log(files);
+const files = fs.readdirSync("data");
 
 for (let i = 0; i < files.length; i++) {
-  let rawdata = fs.readFileSync(`newData/${files[i]}`);
+  let rawdata = fs.readFileSync(`data/${files[i]}`);
   // nftMetadata or ticket
   let nftMetadata = JSON.parse(rawdata);
   console.log(files[i]);
@@ -16,7 +15,7 @@ for (let i = 0; i < files.length; i++) {
   console.log("===============================");
   // create a QR code for each file
   QRCode.toFile(`output/${nftMetadata.number}.png`, stringdata, function (err) {
-    if (err) return console.log("error occurred");
+    if (err) return console.log("error occurred" + err);
     console.log("QR code saved to file");
   });
 }
