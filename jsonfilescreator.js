@@ -1,4 +1,7 @@
 const fs = require("fs");
+const{ v4: uuidv4 } = require("uuid");
+
+
 
 // Function that returns the current date in the format mm/dd/yyyy
 function getDate() {
@@ -22,17 +25,18 @@ let DateOfEvent = getDate();
 // Event Location
 let location = "Tenerife";
 // number of tickets
-let number = 5;
+let number = 10;
 // name of the event
 let event = "Loco Solana";
 
-// loop 20 times to create 20 tickets with associated json files
+// loop X times to create X tickets with associated json files
 for (let i = 0; i < number; i++) {
   let counter = i;
   let ticket = {
     date: DateOfEvent,
     location: location,
     number: counter,
+    ticketId: uuidv4(),
     event: event,
   };
   saveTicket(ticket);

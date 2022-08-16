@@ -1,0 +1,22 @@
+{
+  "name": "qr-code",
+  "version": "1.0.0",
+  "description": "qr code maker in js for the solana hackaton summer 2022",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gael1130/qr-code-js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gael1130/qr-code-js/issues"
+  },
+  "homepage": "https://github.com/gael1130/qr-code-js#readme",
+  "dependencies": {
+    "uuid": "^8.3.2"
+  }
+}
